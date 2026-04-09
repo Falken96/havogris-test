@@ -919,6 +919,114 @@ footer {
   .footer-bottom { flex-direction: column; gap: 1rem; }
   .hero h1 { font-size: 2.6rem; }
 }
+/* Testimonial rotator */
+.hero-testimonial {
+  position: absolute;
+  right: 3.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  max-width: 280px;
+  text-align: right;
+  opacity: 0;
+  animation: fadeUp 0.8s 1.4s forwards;
+}
+.testimonial-slide {
+  display: none;
+}
+.testimonial-slide.active {
+  display: block;
+  animation: testimonialFade 0.6s ease-in-out;
+}
+@keyframes testimonialFade {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.testimonial-quote {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgba(255,250,249,0.75);
+  margin-bottom: 0.75rem;
+}
+.testimonial-author {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--sand);
+}
+.testimonial-dots {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.4rem;
+  margin-top: 1rem;
+}
+.testimonial-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(255,250,249,0.25);
+  transition: background 0.3s;
+}
+.testimonial-dot.active {
+  background: var(--sand);
+}
+
+/* Trustpilot band */
+.trustpilot-band {
+  padding: 2.5rem 0;
+  background: var(--ink);
+  border-top: 1px solid rgba(255,250,249,0.06);
+}
+.trustpilot-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.trustpilot-stars {
+  display: flex;
+  gap: 0.3rem;
+}
+.trustpilot-star {
+  width: 28px; height: 28px;
+  background: #00b67a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.trustpilot-star svg {
+  width: 16px; height: 16px; fill: #fff;
+}
+.trustpilot-star.half {
+  background: linear-gradient(90deg, #00b67a 50%, #dcdce6 50%);
+}
+.trustpilot-info {
+  text-align: left;
+}
+.trustpilot-score {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--cream);
+  margin-bottom: 0.15rem;
+}
+.trustpilot-label {
+  font-size: 0.75rem;
+  color: rgba(255,250,249,0.4);
+}
+.trustpilot-label span {
+  color: rgba(255,250,249,0.6);
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .hero-testimonial { display: none; }
+}
+
 </style>
 </head>
 <body>
@@ -958,6 +1066,30 @@ footer {
     <div class="hero-actions">
       <a href="#menu" class="btn-primary">Se menuen</a>
       <a href="#om" class="btn-ghost">Vores historie &rarr;</a>
+    </div>
+  </div>
+   <div class="hero-testimonial">
+    <div class="testimonial-slide active">
+      <p class="testimonial-quote">&ldquo;Den bedste poke bowl jeg nogensinde har fået. Frisk, smukt og helt perfekt.&rdquo;</p>
+      <p class="testimonial-author">Mathilde K., København</p>
+    </div>
+    <div class="testimonial-slide">
+      <p class="testimonial-quote">&ldquo;Vi hyrede Hav & Ris til vores firmafest. Alle var vilde med det. Anbefales!&rdquo;</p>
+      <p class="testimonial-author">Jonas R., Helsingør</p>
+    </div>
+    <div class="testimonial-slide">
+      <p class="testimonial-quote">&ldquo;Endelig street food der både er sundt og ser fantastisk ud. Vi kommer igen.&rdquo;</p>
+      <p class="testimonial-author">Sara L., Hillerød</p>
+    </div>
+    <div class="testimonial-slide">
+      <p class="testimonial-quote">&ldquo;Sushi burritoen er genial. Hurtig service og virkelig venligt personale.&rdquo;</p>
+      <p class="testimonial-author">Frederik M., Roskilde</p>
+    </div>
+    <div class="testimonial-dots">
+      <div class="testimonial-dot active"></div>
+      <div class="testimonial-dot"></div>
+      <div class="testimonial-dot"></div>
+      <div class="testimonial-dot"></div>
     </div>
   </div>
   <div class="hero-scroll">
@@ -1224,7 +1356,24 @@ footer {
     <a href="mailto:hej@havogris.dk" class="btn-primary" style="margin-top:1.25rem;">Skriv til os</a>
   </div>
 </div>
-
+<!-- ===== TRUSTPILOT ===== -->
+<section class="trustpilot-band">
+  <div class="container">
+    <div class="trustpilot-inner">
+      <div class="trustpilot-stars">
+        <div class="trustpilot-star"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg></div>
+        <div class="trustpilot-star"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg></div>
+        <div class="trustpilot-star"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg></div>
+        <div class="trustpilot-star"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg></div>
+        <div class="trustpilot-star half"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.27 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg></div>
+      </div>
+      <div class="trustpilot-info">
+        <p class="trustpilot-score">4,7 ud af 5</p>
+        <p class="trustpilot-label">Baseret på <span>127 anmeldelser</span> på Trustpilot</p>
+      </div>
+    </div>
+  </div>
+</section>
 <!-- ===== FOOTER ===== -->
 <footer>
   <div class="container">
@@ -1292,6 +1441,17 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 });
+// Testimonial rotator
+const slides = document.querySelectorAll('.testimonial-slide');
+const dots = document.querySelectorAll('.testimonial-dot');
+let current = 0;
+setInterval(() => {
+  slides[current].classList.remove('active');
+  dots[current].classList.remove('active');
+  current = (current + 1) % slides.length;
+  slides[current].classList.add('active');
+  dots[current].classList.add('active');
+}, 4000);
 </script>
 
 </body>
