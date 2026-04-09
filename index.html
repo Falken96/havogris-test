@@ -698,6 +698,109 @@ nav.scrolled .menu-toggle span { background: var(--ocean); }
   background: var(--ocean-light);
 }
 
+/* Se priser button */
+.btn-secondary {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.9rem 2rem;
+  background: transparent;
+  color: var(--cream);
+  border: 1.5px solid rgba(255,250,249,0.4);
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.btn-secondary:hover {
+  border-color: var(--cream);
+  background: rgba(255,250,249,0.1);
+}
+
+/* Modal */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(26,42,45,0.6);
+  backdrop-filter: blur(6px);
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  background: var(--cream);
+  border-radius: 16px;
+  padding: 2.5rem 2.5rem 2rem;
+  max-width: 440px;
+  width: 90%;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+}
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--ink-muted);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.modal-close:hover { color: var(--ink); }
+.modal-content h3 {
+  font-family: var(--serif);
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 0.25rem;
+}
+.modal-subtitle {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--ocean);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.75rem;
+}
+.modal-prices {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+.modal-price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(26,42,45,0.08);
+}
+.modal-price-row span:first-child {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+.modal-price-value {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+.modal-note {
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: var(--ink-muted);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+.modal-contact p {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  margin-bottom: 0.25rem;
+}
 /* ============ FOOTER ============ */
 footer {
   padding: 4rem 0 2.5rem;
@@ -1090,9 +1193,37 @@ footer {
   <div class="container">
     <h2>Book os til dit næste arrangement.</h2>
     <p>Vi laver catering til events, firmafester og private arrangementer. Skriv til os, og vi finder en løsning.</p>
-    <a href="mailto:hej@havogris.dk" class="btn-primary">Kontakt os</a>
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+      <a href="mailto:hej@havogris.dk" class="btn-primary">Kontakt os</a>
+      <button class="btn-secondary" onclick="document.getElementById('pris-modal').style.display='flex'">Se priser</button>
+    </div>
   </div>
 </section>
+
+<!-- ===== PRIS MODAL ===== -->
+<div id="pris-modal" class="modal-overlay" onclick="if(event.target===this)this.style.display='none'">
+  <div class="modal-content">
+    <button class="modal-close" onclick="document.getElementById('pris-modal').style.display='none'">&times;</button>
+    <h3>Catering-priser</h3>
+    <p class="modal-subtitle">Kun på Sjælland</p>
+    <div class="modal-prices">
+      <div class="modal-price-row">
+        <span>Grundpris (foodtruck + setup)</span>
+        <span class="modal-price-value">3.000 kr.</span>
+      </div>
+      <div class="modal-price-row">
+        <span>Couvert pr. person</span>
+        <span class="modal-price-value">250 kr.</span>
+      </div>
+    </div>
+    <p class="modal-note">Prisen inkluderer transport, opsætning og betjening. Menuen aftales individuelt. Vi kører udelukkende på Sjælland.</p>
+    <div class="modal-contact">
+      <p>hej@havogris.dk</p>
+      <p>+45 XX XX XX XX</p>
+    </div>
+    <a href="mailto:hej@havogris.dk" class="btn-primary" style="margin-top:1.25rem;">Skriv til os</a>
+  </div>
+</div>
 
 <!-- ===== FOOTER ===== -->
 <footer>
