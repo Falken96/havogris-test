@@ -378,6 +378,20 @@ nav.scrolled .menu-toggle span { background: var(--ocean); }
 }
 
 /* ============ SECTION: MENU ============ */
+.menu-card[style*="background-image"] {
+  position: relative;
+}
+.menu-card[style*="background-image"]::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 42, 45, 0.55);
+  border-radius: 12px;
+}
+.menu-card[style*="background-image"] > * {
+  position: relative;
+  z-index: 1;
+}
 .menu-section {
   padding: 7rem 0 8rem;
   background: var(--ocean);
@@ -876,7 +890,7 @@ footer {
       <p>En kort menu, hvor alt er lavet med de bedste råvarer. Ingen kompromiser, ingen overflødige valg.</p>
     </div>
     <div class="menu-grid">
-      <div class="menu-card reveal">
+      <div class="menu-card reveal" style="background-image: url('https://i.imgur.com/7Xhs5dY.jpeg'); background-size: cover; background-position: center;">
         <div class="menu-card-icon">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(235,237,232,0.7)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12 Q12 7 16 12 Q12 17 8 12Z"/></svg>
         </div>
@@ -884,7 +898,7 @@ footer {
         <p class="price">Fra 89 kr.</p>
         <p>Vores signaturret. Sushiris toppet med dagens friske fisk, edamame, avocado, mango og hjemmelavet dressing. Vælg din egen kombination.</p>
       </div>
-      <div class="menu-card reveal">
+<div class="menu-card reveal" style="background-image: url('https://i.imgur.com/TF15wOY.jpeg'); background-size: cover; background-position: center;">
         <div class="menu-card-icon">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(235,237,232,0.7)" stroke-width="1.5"><rect x="3" y="6" width="18" height="12" rx="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="16" y2="14"/></svg>
         </div>
@@ -892,7 +906,7 @@ footer {
         <p class="price">Fra 59 kr.</p>
         <p>Alt det bedste fra en maki-rulle, bare i burritoformat. Noritang, sushiris, frisk fisk, sprøde grøntsager og umami-sauce. Perfekt til farten.</p>
       </div>
-      <div class="menu-card reveal">
+      <div class="menu-card reveal" style="background-image: url('https://i.imgur.com/FRp3jsq.jpeg'); background-size: cover; background-position: center;">
         <div class="menu-card-icon">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(235,237,232,0.7)" stroke-width="1.5"><path d="M12 3 L15 9 L21 9 L16 14 L18 21 L12 17 L6 21 L8 14 L3 9 L9 9Z"/></svg>
         </div>
