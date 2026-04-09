@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Hav & Ris – Sushi Burritos. Vælg mellem laks, tun, rejer eller tofu. Alt det bedste fra en maki-rulle i burritoformat.">
+<title>Sushi Burritos — Hav & Ris</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --ocean: #267a87;
+  --ocean-deep: #1c5e68;
+  --ocean-light: #2d8f9e;
+  --sand: #dfccb5;
+  --sand-light: #e8dac8;
+  --cream: #fffaf9;
+  --cream-warm: #fef6f2;
+  --ink: #1a2a2d;
+  --ink-soft: #3a5558;
+  --ink-muted: #6a8a8d;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+}
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--cream);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 1.25rem 2.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(255, 250, 249, 0.88);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 rgba(38, 122, 135, 0.08);
+}
+.nav-logo {
+  font-family: var(--serif); font-size: 1.35rem; font-weight: 500;
+  letter-spacing: 0.04em; color: var(--ocean); text-decoration: none;
+}
+.nav-links { display: flex; gap: 2.25rem; list-style: none; }
+.nav-links a {
+  font-family: var(--sans); font-size: 0.8rem; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--ink-soft); text-decoration: none; transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--ocean); }
+.nav-cta {
+  font-family: var(--sans); font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 0.65rem 1.5rem; border: 1.5px solid var(--ocean);
+  border-radius: 100px; color: var(--ocean); text-decoration: none; transition: all 0.3s;
+}
+.nav-cta:hover { background: var(--ocean); color: var(--cream); }
+.page-header {
+  padding: 10rem 0 4rem; text-align: center;
+  background: var(--ocean); position: relative;
+}
+.page-header::after {
+  content: ''; position: absolute; bottom: -60px; left: 0; right: 0;
+  height: 60px; background: var(--cream);
+  clip-path: ellipse(55% 100% at 50% 100%);
+}
+.page-header .label {
+  font-family: var(--sans); font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--sand); margin-bottom: 1rem;
+}
+.page-header h1 {
+  font-family: var(--serif); font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 300; color: var(--cream); margin-bottom: 0.75rem;
+}
+.page-header p {
+  font-size: 0.95rem; font-weight: 300; color: rgba(255,250,249,0.6);
+  max-width: 480px; margin: 0 auto; line-height: 1.7;
+}
+.products { padding: 5rem 0 6rem; }
+.product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+.product-card {
+  background: rgba(235,237,232,0.7); border-radius: 12px;
+  overflow: hidden; transition: all 0.4s;
+}
+.product-card:hover {
+  transform: translateY(-4px); box-shadow: 0 16px 45px rgba(0,0,0,0.1);
+}
+.product-img { width: 100%; height: 240px; object-fit: cover; display: block; }
+.product-info { padding: 1.75rem 2rem 2rem; }
+.product-info h2 {
+  font-family: var(--serif); font-size: 1.6rem; font-weight: 400;
+  color: var(--ink); margin-bottom: 0.35rem;
+}
+.product-price {
+  font-family: var(--sans); font-size: 0.85rem; font-weight: 600;
+  color: var(--ocean-deep); margin-bottom: 0.75rem;
+}
+.product-info p {
+  font-size: 0.85rem; font-weight: 300; line-height: 1.7; color: var(--ink-soft);
+}
+.product-tags { display: flex; gap: 0.5rem; margin-top: 1rem; flex-wrap: wrap; }
+.tag {
+  font-size: 0.7rem; font-weight: 500; letter-spacing: 0.05em;
+  padding: 0.3rem 0.75rem; border-radius: 100px;
+  background: rgba(38,122,135,0.1); color: var(--ocean-deep);
+}
+.back-link {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-size: 0.85rem; font-weight: 500; color: var(--ocean);
+  text-decoration: none; margin-bottom: 2.5rem; transition: color 0.3s;
+}
+.back-link:hover { color: var(--ocean-deep); }
+footer { padding: 3rem 0 2rem; background: var(--ink); }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-bottom p { font-size: 0.75rem; color: rgba(255,250,249,0.3); }
+.footer-bottom a { font-size: 0.8rem; color: rgba(255,250,249,0.5); text-decoration: none; }
+.footer-bottom a:hover { color: var(--sand); }
+@media (max-width: 700px) {
+  .product-grid { grid-template-columns: 1fr; }
+  .nav-links, .nav-cta { display: none; }
+  nav { padding: 1rem 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Hav & Ris</a>
+  <ul class="nav-links">
+    <li><a href="index.html#om">Om os</a></li>
+    <li><a href="index.html#menu">Menu</a></li>
+    <li><a href="index.html#oplevelsen">Oplevelsen</a></li>
+    <li><a href="index.html#find">Find os</a></li>
+  </ul>
+  <a href="index.html#kontakt" class="nav-cta">Hyr os</a>
+</nav>
+
+<section class="page-header">
+  <div class="container">
+    <p class="label">Menuen</p>
+    <h1>Sushi Burritos</h1>
+    <p>Alt det bedste fra en maki-rulle, bare i burritoformat. Noritang, sushiris, frisk protein og sprøde grøntsager.</p>
+  </div>
+</section>
+
+<section class="products">
+  <div class="container">
+    <a href="index.html#menu" class="back-link">&larr; Tilbage til menuen</a>
+    <div class="product-grid">
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=600&q=80" alt="Laks sushi burrito med avocado og sprøde grøntsager" class="product-img">
+        <div class="product-info">
+          <h2>Laks Sushi Burrito</h2>
+          <p class="product-price">89 kr.</p>
+          <p>Noritang, sushiris, frisk laks, avocado, agurk, gulerod, sprødt tang og goma dressing. Rullet til perfektion.</p>
+          <div class="product-tags">
+            <span class="tag">Frisk laks</span>
+            <span class="tag">Avocado</span>
+            <span class="tag">Noritang</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?w=600&q=80" alt="Tun sushi burrito med spicy sauce" class="product-img">
+        <div class="product-info">
+          <h2>Tun Sushi Burrito</h2>
+          <p class="product-price">89 kr.</p>
+          <p>Noritang, sushiris, frisk tun, avocado, rødløg, jalape&ntilde;o, sesamfrø og spicy sriracha-mayo.</p>
+          <div class="product-tags">
+            <span class="tag">Frisk tun</span>
+            <span class="tag">Spicy</span>
+            <span class="tag">Jalape&ntilde;o</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?w=600&q=80" alt="Rejer sushi burrito med citrus dressing" class="product-img">
+        <div class="product-info">
+          <h2>Rejer Sushi Burrito</h2>
+          <p class="product-price">89 kr.</p>
+          <p>Noritang, sushiris, stegte tigerrejer, avocado, mango, rødkål, koriander og citrus-ponzu dressing.</p>
+          <div class="product-tags">
+            <span class="tag">Tigerrejer</span>
+            <span class="tag">Mango</span>
+            <span class="tag">Ponzu</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1540914124281-342587941389?w=600&q=80" alt="Tofu sushi burrito vegansk med grøntsager" class="product-img">
+        <div class="product-info">
+          <h2>Tofu Sushi Burrito</h2>
+          <p class="product-price">79 kr.</p>
+          <p>Noritang, sushiris, marineret crispy tofu, avocado, agurk, syltede rødløg, sprøde løg og miso-ingefær dressing.</p>
+          <div class="product-tags">
+            <span class="tag">Vegansk</span>
+            <span class="tag">Crispy tofu</span>
+            <span class="tag">Miso dressing</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-bottom">
+      <p>&copy; 2026 Hav & Ris. Alle rettigheder forbeholdes.</p>
+      <a href="index.html">Tilbage til forsiden</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
